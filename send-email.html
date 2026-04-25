@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Email</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #111;
+    }
+
+    button {
+      /* padding: 2.5vw 2.5vw; */
+      -webkit-appearance: none;
+      padding: 50px 40px;
+      font-size: 1.1rem;
+      background: #f874ba;
+      color: #111;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      font-weight: bold;
+      /* TODO: Change font colour  */
+    }
+
+    /* button:hover { background: #f93496; } */
+  </style>
+</head>
+<body>
+
+  <button onclick="sendEmail()">Press me</button>
+
+  <script>
+    emailjs.init("f-t1bxrFWlXEtSkZ-");
+    function sendEmail() {
+      emailjs.send("service_anniv_2203451", "template_tztyer5", {
+        to_email: "mobifortnite@gmail.com",       
+        message:  "Open this on your laptop:\n\nhttps://github.com/YOUR_LINK" 
+      })
+      .then(() => alert("Sent!"))
+      .catch((err) => alert("Error: " + JSON.stringify(err)));
+    }
+  </script>
+
+</body>
+</html>
